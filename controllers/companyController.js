@@ -20,4 +20,4 @@ export const getCompanyPostedJobs = async (req, res) => {};
 export const ChangeJobApplicationsStatus = async (req, res) => {};
 
 // Change Job visibility
-export const changeJobVisibility = async (req, res) => {};
+export const changeVisibility = async (req, res) => {};
