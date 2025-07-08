@@ -25,6 +25,13 @@ export const registerCompany = async (req, res) => {
     const hashPassword = await bcrypt.hash(password, salt);
 
     const imageUpload = await cloudinary.uploader.upload(imageFile.path);
+
+    const company = await Company.create({
+      name,
+      email,
+      password: hashPassword,
+      image: imageUpload.secure_url,
+    });
   } catch (error) {}
 };
 
