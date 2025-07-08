@@ -1,5 +1,8 @@
 // Register a new company
-export const registerCompany = async (req, res) => {};
+export const registerCompany = async (req, res) => {
+  const { name, email, password } = req.body;
+  const imageFile = req.file;
+};
 
 // Company login
 export const loginCompany = async (req, res) => {};
