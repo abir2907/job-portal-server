@@ -1,3 +1,5 @@
+import Company from "../models/Company.js";
+
 // Register a new company
 export const registerCompany = async (req, res) => {
   const { name, email, password } = req.body;
@@ -6,6 +8,17 @@ export const registerCompany = async (req, res) => {
   if (!name || !email || !password || !imageFile) {
     return res.json({ success: false, message: "Missing Details" });
   }
+
+  try {
+    const companyExists = await Company.findOne({ email });
+
+    if (companyExists) {
+      return res.json({
+        success: false,
+        message: "Company already registered",
+      });
+    }
+  } catch (error) {}
 };
 
 // Company login
