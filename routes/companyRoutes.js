@@ -22,7 +22,7 @@ router.post("/login", loginCompany);
 router.get("/company", getCompanyData);
 
 // Post a job
-router.post("post-job", postJob);
+router.post("/post-job", postJob);
 
 // Get Applicants Data of Company
 router.get("/applicants", getCompanyJobApplicants);
@@ -34,6 +34,6 @@ router.get("/list-jobs", getCompanyPostedJobs);
 router.post("/change-status", ChangeJobApplicationsStatus);
 
 // Change Applications Visibility
-router.post("change-visibility", changeVisibility);
+router.post("/change-visibility", changeVisibility);
 
 export default router;
