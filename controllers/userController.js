@@ -1,5 +1,22 @@
+import User from "../models/User.js";
+
 // Get user data
-export const getUserData = async (req, res) => {};
+export const getUserData = async (req, res) => {
+  // clerk middleware will attach the user details for us in req.auth
+  const userId = req.auth.userId;
+
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.json({ success: false, message: "User Not Found" });
+    }
+
+    res.json({ success: true, user });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
 
 // Apply for a job
 export const applyForJob = async (req, res) => {};
